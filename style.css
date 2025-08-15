@@ -88,7 +88,7 @@ textarea {
     font-size: 1em;
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
-    background-color: #fdfdfd;
+    background-color: #ffffff;
 }
 
 input[type="text"]:focus,
@@ -338,4 +338,57 @@ footer {
     margin-top: 40px;
     color: #888;
     font-size: 0.9em;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        background: linear-gradient(to bottom, var(--primary-color-light) 0%, var(--secondary-color) 200px);
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    main > section, .action-area {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .setting-item-row {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .history-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .history-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .history-item .restore-history-btn, .history-item .delete-history-btn {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    #generatePrompt {
+        width: 100%;
+        font-size: 1.2em;
+        padding: 15px;
+    }
 }
