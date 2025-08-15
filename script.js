@@ -130,11 +130,15 @@ ${urlsText}
             promptPreview.textContent = item.prompt.substring(0, 150) + '...';
             const controlsContainer = document.createElement('div');
             controlsContainer.className = 'history-controls';
+
             const timestamp = document.createElement('span');
             timestamp.className = 'history-timestamp';
             const date = new Date(item.timestamp);
             timestamp.textContent = `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
-            
+
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.className = 'history-buttons';
+
             const restoreButton = document.createElement('button');
             restoreButton.className = 'restore-history-btn';
             restoreButton.textContent = 'この内容を復元';
@@ -145,9 +149,12 @@ ${urlsText}
             deleteButton.textContent = '削除';
             deleteButton.addEventListener('click', () => deleteFromHistory(index));
 
+            buttonsContainer.appendChild(restoreButton);
+            buttonsContainer.appendChild(deleteButton);
+
             controlsContainer.appendChild(timestamp);
-            controlsContainer.appendChild(restoreButton);
-            controlsContainer.appendChild(deleteButton);
+            controlsContainer.appendChild(buttonsContainer);
+
             historyItem.appendChild(promptPreview);
             historyItem.appendChild(controlsContainer);
             historyContainer.appendChild(historyItem);
